@@ -29,10 +29,10 @@ public class ProyectoEmpleado {
             System.out.println("\n\nEmpleados introducidos");
             mostrar();
 
-            importe = leerImporteHoras();
+            importe = leerImporteHorasExtras();
 
             // Asignar el atributo estatico pagoPorHoraExtra
-            Empleado.setPagoPorHora(importe);
+            Empleado.setPagoPorHoraExtra(importe);
 
             // Calcular el empleado que mas cobra
             empleado = empleadoQueMasCobra();
@@ -102,8 +102,8 @@ public class ProyectoEmpleado {
             e = new Empleado(dni); //crear una nueva instancia de empleado
 
             e.setNombre(nombre);
-            e.setSueldo(sueldoBase);
-            e.setHoraExtra(horasExtras);
+            e.setSueldoBase(sueldoBase);
+            e.setHorasExtras(horasExtras);
             e.setTipoIRPF(tipoIRPF);
             e.setCasado(Character.toUpperCase(casado));
             e.setNumeroHijos(numeroHijos);
@@ -113,15 +113,21 @@ public class ProyectoEmpleado {
         }
     }
 
-    public static double leerImporteHoras() {
-        return indice;
-        // TODO Auto-generated method stub
+    public static double leerImporteHorasExtras() {
+        double importe;
+        System.out.print("Introduce el importe a pagar por cada hora extra: ");
+        importe = entrada.nextDouble();
+        return importe;
     }
 
     public static void mostrar() {
         for (int i = 0; i < indice; i++) {
             System.out.println(empleados[i]);
         }
+    }
+
+    public static int numeroDeEmpleador() {
+        return indice;
     }
 
     public static Empleado empleadoQueMasCobra() {

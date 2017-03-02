@@ -12,12 +12,62 @@ package proyectoempleado;
 
 public class Empleado {
 
-	private static double pagoPorHora;
-	private String nif;
-	private String nombre;
-	private double sueldo;
-	private double horaExtra;
-	private double tipoIRPF;
+	 private static double pagoPorHoraExtra; //atributo de clase
+    private String nif;
+    private String nombre;
+    private double sueldoBase;
+    private int horasExtras;
+    private double tipoIRPF;
+    private char casado;  //S ó N
+    private int numeroHijos;
+
+    public static double getPagoPorHoraExtra() {
+        return pagoPorHoraExtra;
+    }
+
+    public static void setPagoPorHoraExtra(double pagoPorHoraExtra) {
+        Empleado.pagoPorHoraExtra = pagoPorHoraExtra;
+    }
+
+    public String getNif() {
+        return nif;
+    }
+
+    public void setNif(String nif) {
+        this.nif = nif;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getSueldoBase() {
+        return sueldoBase;
+    }
+
+    public void setSueldoBase(double sueldoBase) {
+        this.sueldoBase = sueldoBase;
+    }
+
+    public int getHorasExtras() {
+        return horasExtras;
+    }
+
+    public void setHorasExtras(int horasExtras) {
+        this.horasExtras = horasExtras;
+    }
+
+    public double getTipoIRPF() {
+        return tipoIRPF;
+    }
+
+    public void setTipoIRPF(double tipoIRPF) {
+        this.tipoIRPF = tipoIRPF;
+    }
 
     public char getCasado() {
         return casado;
@@ -26,66 +76,17 @@ public class Empleado {
     public void setCasado(char casado) {
         this.casado = casado;
     }
-        private char casado;  //S ó N
-	private int numeroHijos;
 
-	public String getNif() {
-		return nif;
-	}
+    public int getNumeroHijos() {
+        return numeroHijos;
+    }
 
-	public void setNif(String nif) {
-		this.nif = nif;
-	}
+    public void setNumeroHijos(int numeroHijos) {
+        this.numeroHijos = numeroHijos;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public double getSueldo() {
-		return sueldo;
-	}
-
-	public void setSueldo(double sueldo) {
-		this.sueldo = sueldo;
-	}
-
-	public double getHoraExtra() {
-		return horaExtra;
-	}
-
-	public void setHoraExtra(double horaExtra) {
-		this.horaExtra = horaExtra;
-	}
-
-	public double getTipoIRPF() {
-		return tipoIRPF;
-	}
-
-	public void setTipoIRPF(double tipoIRPF) {
-		this.tipoIRPF = tipoIRPF;
-	}
-
-
-	public int getNumeroHijos() {
-		return numeroHijos;
-	}
-
-	public void setNumeroHijos(int numeroHijos) {
-		this.numeroHijos = numeroHijos;
-	}
-
-	public static double getPagoPorHora() {
-		return pagoPorHora;
-	}
-
-	public static void setPagoPorHora(double pagoPorHora) {
-		Empleado.pagoPorHora = pagoPorHora;
-	}
-
+  
+ 
 	public Empleado(String nif) {
 		this.nif = nif;
 	}
@@ -95,11 +96,11 @@ public class Empleado {
 	}
 
 	public double calcularImporteHorasExtras() {
-		return horaExtra * pagoPorHora;
+		return horasExtras * pagoPorHoraExtra;
 	}
 
 	public double calcularsueldoBruto() {
-		return sueldo + calcularImporteHorasExtras();
+		return sueldoBase + calcularImporteHorasExtras();
 	}
 
 	public double calcularRetencionIrpf(){
@@ -121,7 +122,7 @@ public class Empleado {
 
 	@Override
 	public String toString() {
-		return "Empleado [nif=" + nif + ", nombre=" + nombre + ", sueldo=" + sueldo + ", horaExtra=" + horaExtra
+		return "Empleado [nif=" + nif + ", nombre=" + nombre + ", sueldo=" + sueldoBase + ", horaExtra=" + horasExtras
 				+ ", tipoIRPF=" + tipoIRPF + ", casado=" + casado + ", numeroHijos=" + numeroHijos + "]";
 	}
 
